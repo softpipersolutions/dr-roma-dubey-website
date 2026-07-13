@@ -298,28 +298,65 @@ a:hover { color: var(--text-link-hover); }
   * { animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }
 }
 
-/* ---------- Responsive layout ---------- */
-@media (max-width: 900px) {
-  .hero-grid { grid-template-columns: 1fr !important; }
+/* ---------- Smooth in-page scrolling under the sticky header ---------- */
+html { scroll-behavior: smooth; }
+:target { scroll-margin-top: 90px; }
+section[id] { scroll-margin-top: 84px; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+/* ============================================================
+   Responsive layout
+   ============================================================ */
+
+/* Let grid/flex children shrink below their min-content so tracks
+   never blow past the viewport (the classic overflow fix). */
+.hero-grid > *, .grid-3 > *, .about-grid > *, .faq-grid > *,
+.footer-grid > *, .loc-grid > *, .loc-contact > *,
+.book-grid > *, .book-two > *, .portal-two > * { min-width: 0; }
+
+/* ---- Tablet & below ---- */
+@media (max-width: 960px) {
+  .hero-grid { grid-template-columns: 1fr !important; gap: 40px !important; }
   .about-grid { grid-template-columns: 1fr !important; }
   .faq-grid { grid-template-columns: 1fr !important; }
   .faq-aside { position: static !important; }
   .grid-3 { grid-template-columns: 1fr 1fr !important; }
   .footer-grid { grid-template-columns: 1fr 1fr !important; }
-  .nav-links { display: none !important; }
+  .loc-grid { grid-template-columns: 1fr !important; }
 }
-@media (max-width: 620px) {
+
+/* ---- Mobile nav breakpoint ---- */
+@media (max-width: 860px) {
+  .nav-links { display: none !important; }
+  .nav-actions { display: none !important; }
+  .nav-toggle { display: inline-flex !important; }
+  .nav-mobile-panel { display: block !important; }
+}
+
+/* ---- Small tablets / large phones ---- */
+@media (max-width: 720px) {
+  .loc-contact { grid-template-columns: 1fr !important; gap: 12px !important; }
+  .footer-grid { grid-template-columns: 1fr 1fr !important; }
+  /* hero image sits below copy, capped so it never dominates */
+  .hero-grid > div:last-child { max-width: 460px; margin-inline: auto; width: 100%; }
+}
+
+/* ---- Phones ---- */
+@media (max-width: 560px) {
   .grid-3 { grid-template-columns: 1fr !important; }
   .footer-grid { grid-template-columns: 1fr !important; }
+  .book-two { grid-template-columns: 1fr !important; }
+  .hero-cta { width: 100%; }
+  .hero-cta > * { flex: 1; }
+}
+@media (max-width: 440px) {
+  .faq-news-row { flex-direction: column !important; }
 }
 
 /* ---------- Booking page ---------- */
 @media (max-width: 860px) {
   .book-grid { grid-template-columns: 1fr !important; }
   .book-grid > div:first-child { position: static !important; }
-}
-@media (max-width: 520px) {
-  .book-two { grid-template-columns: 1fr !important; }
 }
 
 /* ---------- Portal ---------- */
@@ -333,4 +370,7 @@ a:hover { color: var(--text-link-hover); }
   .portal-messages { grid-template-columns: 1fr !important; height: auto !important; }
   .portal-messages > div:first-child { max-height: 220px; }
   .portal-convo { min-height: 420px; }
+}
+@media (max-width: 520px) {
+  .portal-stats { grid-template-columns: 1fr !important; }
 }

@@ -21,7 +21,7 @@ export function Hero() {
             <p style={{ fontSize: 'var(--text-md)', lineHeight: 'var(--leading-relaxed)', color: 'var(--text-muted)', maxWidth: 520 }}>
               I&apos;m Dr. Roma Dubey — an Obstetrician, Gynaecologist &amp; Laparoscopic Surgeon offering advanced, evidence-based women&apos;s health care at every stage of life.
             </p>
-            <div style={{ display: 'flex', gap: 14, flexWrap: 'wrap', marginTop: 4 }}>
+            <div className="hero-cta" style={{ display: 'flex', gap: 14, flexWrap: 'wrap', marginTop: 4 }}>
               <Button variant="whatsapp" size="lg" leftIcon="message" as={Link} href="/book">
                 Connect on WhatsApp
               </Button>

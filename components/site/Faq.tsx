@@ -25,8 +25,8 @@ export function Faq() {
                 <Icon name="mail" size={18} /> Health tips newsletter
               </div>
               <p style={{ fontSize: 'var(--text-sm)', color: 'var(--text-muted)', marginBottom: 14 }}>Exclusive updates on women&apos;s wellness and clinic offers.</p>
-              <div style={{ display: 'flex', gap: 10 }}>
-                <Input placeholder="Your email" leftIcon="mail" containerStyle={{ flex: 1 }} />
+              <div className="faq-news-row" style={{ display: 'flex', gap: 10 }}>
+                <Input placeholder="Your email" leftIcon="mail" containerStyle={{ flex: 1, minWidth: 0 }} />
                 <Button variant="primary">Subscribe</Button>
               </div>
             </div>

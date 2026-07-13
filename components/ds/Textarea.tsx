@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useId } from 'react';
 
 /** A labelled multi-line text field with hint / error. */
 export interface TextareaProps extends Omit<React.TextareaHTMLAttributes<HTMLTextAreaElement>, 'style'> {
@@ -27,7 +27,8 @@ export function Textarea({
   ...rest
 }: TextareaProps) {
   const [focused, setFocused] = useState(false);
-  const fieldId = id || `ta-${Math.random().toString(36).slice(2, 8)}`;
+  const autoId = useId();
+  const fieldId = id || `ta-${autoId}`;
   const borderColor = error ? 'var(--danger)' : focused ? 'var(--border-focus)' : 'var(--border-default)';
 
   return (

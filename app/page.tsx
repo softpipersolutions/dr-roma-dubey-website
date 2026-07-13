@@ -7,6 +7,7 @@ import { Services } from '@/components/site/Services';
 import { HowItWorks } from '@/components/site/HowItWorks';
 import { About } from '@/components/site/About';
 import { Reviews } from '@/components/site/Reviews';
+import { Locations } from '@/components/site/Locations';
 import { Faq } from '@/components/site/Faq';
 import { Footer } from '@/components/site/Footer';
 
@@ -40,6 +41,7 @@ export default function Home() {
       <HowItWorks />
       <About />
       <Reviews />
+      <Locations />
       <Faq />
       <Footer />
     </>

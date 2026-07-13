@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useId } from 'react';
 import { Icon } from './Icon';
 
 /** Custom warm checkbox with label. Controlled (`checked`) or uncontrolled (`defaultChecked`). */
@@ -13,7 +13,8 @@ export interface CheckboxProps extends Omit<React.InputHTMLAttributes<HTMLInputE
  * Checkbox — custom warm checkbox with label. Controlled or uncontrolled.
  */
 export function Checkbox({ label, checked, defaultChecked, disabled = false, onChange, id, style = {}, ...rest }: CheckboxProps) {
-  const fieldId = id || `cb-${Math.random().toString(36).slice(2, 8)}`;
+  const autoId = useId();
+  const fieldId = id || `cb-${autoId}`;
   const isControlled = checked !== undefined;
   const [internal, setInternal] = React.useState(!!defaultChecked);
   const on = isControlled ? checked : internal;

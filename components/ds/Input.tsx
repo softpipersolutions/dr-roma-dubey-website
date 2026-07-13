@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useId } from 'react';
 import { Icon } from './Icon';
 import { IconName } from './Icon';
 
@@ -42,7 +42,8 @@ export function Input({
 }: InputProps) {
   const [focused, setFocused] = useState(false);
   const sz = SIZES[size] || SIZES.md;
-  const fieldId = id || `in-${Math.random().toString(36).slice(2, 8)}`;
+  const autoId = useId();
+  const fieldId = id || `in-${autoId}`;
   const borderColor = error ? 'var(--danger)' : focused ? 'var(--border-focus)' : 'var(--border-default)';
 
   return (

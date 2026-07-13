@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useId } from 'react';
 import { Icon } from './Icon';
 
 export type SelectSize = 'sm' | 'md' | 'lg';
@@ -35,7 +35,8 @@ export function Select({
 }: SelectProps) {
   const [focused, setFocused] = useState(false);
   const sz = SIZES[size] || SIZES.md;
-  const fieldId = id || `sel-${Math.random().toString(36).slice(2, 8)}`;
+  const autoId = useId();
+  const fieldId = id || `sel-${autoId}`;
   const borderColor = error ? 'var(--danger)' : focused ? 'var(--border-focus)' : 'var(--border-default)';
   const opts: SelectOption[] = (options || []).map((o) => (typeof o === 'string' ? { value: o, label: o } : o));
 

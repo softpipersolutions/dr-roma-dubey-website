@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useId } from 'react';
 
 export type SwitchSize = 'sm' | 'md';
 
@@ -20,7 +20,8 @@ const SIZES: Record<SwitchSize, { w: number; h: number; knob: number }> = {
  * Switch — a warm on/off toggle. Controlled or uncontrolled.
  */
 export function Switch({ label, checked, defaultChecked, disabled = false, size = 'md', onChange, id, style = {}, ...rest }: SwitchProps) {
-  const fieldId = id || `sw-${Math.random().toString(36).slice(2, 8)}`;
+  const autoId = useId();
+  const fieldId = id || `sw-${autoId}`;
   const isControlled = checked !== undefined;
   const [internal, setInternal] = React.useState(!!defaultChecked);
   const on = isControlled ? checked : internal;

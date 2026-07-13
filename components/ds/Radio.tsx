@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useId } from 'react';
 
 /** A single custom radio; group by sharing `name`. */
 export interface RadioProps extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'style' | 'type'> {
@@ -12,7 +12,8 @@ export interface RadioProps extends Omit<React.InputHTMLAttributes<HTMLInputElem
  * Radio — a single custom radio with label. Group by sharing `name`.
  */
 export function Radio({ label, name, value, checked, defaultChecked, disabled = false, onChange, id, style = {}, ...rest }: RadioProps) {
-  const fieldId = id || `rb-${Math.random().toString(36).slice(2, 8)}`;
+  const autoId = useId();
+  const fieldId = id || `rb-${autoId}`;
   const isControlled = checked !== undefined;
   const [internal, setInternal] = React.useState(!!defaultChecked);
   const on = isControlled ? checked : internal;

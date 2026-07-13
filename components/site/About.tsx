@@ -5,7 +5,7 @@ const PROCEDURES = ['Diagnostic Laparoscopy', 'Laparoscopic Hysterectomy', 'Myom
 
 export function About() {
   return (
-    <section id="about" style={{ background: 'var(--surface-cream)' }}>
+    <section id="about" style={{ background: 'var(--surface-cream)', overflow: 'hidden' }}>
       <div className="container section">
         <div className="about-grid" style={{ display: 'grid', gridTemplateColumns: '0.9fr 1.1fr', gap: 56, alignItems: 'center' }}>
           <div style={{ position: 'relative' }}>
