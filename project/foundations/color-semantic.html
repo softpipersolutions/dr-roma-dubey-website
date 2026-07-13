@@ -1,0 +1,17 @@
+<!-- @dsCard group="Colors" viewport="760x200" name="Semantic states" subtitle="Warm-tuned: sage success, amber warning, rust danger, dusk info — soft + solid" -->
+<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="../styles.css">
+<style>
+  body{margin:0;background:var(--surface-page);font-family:var(--font-sans);padding:22px 26px}
+  .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+  .col{display:flex;flex-direction:column;gap:8px}
+  .solid{height:48px;border-radius:var(--radius-sm);display:flex;align-items:center;padding:0 14px;color:#fff;font-weight:var(--fw-semibold);font-size:13px}
+  .soft{height:40px;border-radius:var(--radius-sm);display:flex;align-items:center;padding:0 14px;font-weight:var(--fw-semibold);font-size:12px}
+  .cap{font-size:11px;color:var(--text-subtle)}
+</style></head><body>
+<div class="grid">
+  <div class="col"><div class="solid" style="background:var(--success)">Success</div><div class="soft" style="background:var(--success-soft);color:var(--success-text)">Confirmed</div><span class="cap">sage · #5E8B6F</span></div>
+  <div class="col"><div class="solid" style="background:var(--warning)">Warning</div><div class="soft" style="background:var(--warning-soft);color:var(--warning-text)">Pending</div><span class="cap">amber · #C98A2E</span></div>
+  <div class="col"><div class="solid" style="background:var(--danger)">Danger</div><div class="soft" style="background:var(--danger-soft);color:var(--danger-text)">Overdue</div><span class="cap">rust · #B84A3D</span></div>
+  <div class="col"><div class="solid" style="background:var(--info)">Info</div><div class="soft" style="background:var(--info-soft);color:var(--info-text)">Note</div><span class="cap">dusk · #5E7B8B</span></div>
+</div>
+</body></html>

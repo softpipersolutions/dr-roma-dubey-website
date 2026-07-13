@@ -1,0 +1,126 @@
+/* ============================================================
+   COLORS — "Warm & Nurturing" palette
+   Base ramps (raw values) + semantic aliases (use these in UI).
+   Palette: terracotta clay, soft blush, warm sand neutrals,
+   espresso ink. Warm-tuned semantic states.
+   ============================================================ */
+
+:root {
+  /* ---------- BRAND: Clay / Terracotta (primary) ---------- */
+  --clay-50:  #FBF0EB;
+  --clay-100: #F6DED3;
+  --clay-200: #EFC3B0;
+  --clay-300: #E5A288;
+  --clay-400: #D68467;
+  --clay-500: #C97B63;  /* brand base — decorative, hero, fills-behind-dark-text */
+  --clay-600: #B65D42;  /* primary interactive — AA (4.5:1) with white text */
+  --clay-700: #9A4A34;  /* hover / pressed / text links (6.2:1 on white) */
+  --clay-800: #7B3B29;
+  --clay-900: #5C2C1F;
+
+  /* ---------- Blush (secondary / soft accent) ---------- */
+  --blush-50:  #FDF4F0;
+  --blush-100: #FBE9E2;
+  --blush-200: #F6D6C8;
+  --blush-300: #F0C2AE;
+  --blush-400: #ECB8A2;
+  --blush-500: #E8B4A0;  /* blush base */
+  --blush-600: #D99680;
+
+  /* ---------- Sand (warm neutrals) ---------- */
+  --sand-50:  #FBF7F4;  /* page background */
+  --sand-100: #F5EDE7;  /* subtle surface */
+  --sand-200: #EADED5;  /* borders / dividers */
+  --sand-300: #DBC9BC;  /* strong border / disabled fill */
+  --sand-400: #BCA595;  /* muted text on dark, placeholder */
+  --sand-500: #96806F;  /* secondary text */
+  --sand-600: #6E5A4C;  /* body-muted */
+  --sand-700: #4E3E33;  /* body strong */
+  --sand-800: #3D2B26;  /* espresso ink — primary text */
+  --sand-900: #2A1D19;  /* deepest ink / dark surfaces */
+
+  --cream:    #F5E6DE;  /* signature warm cream (from brand) */
+  --white:    #FFFFFF;
+  --black:    #1C1310;
+
+  /* ---------- Semantic state colors (warm-tuned) ---------- */
+  --sage-500:   #5E8B6F;  /* success */
+  --sage-100:   #E6F0E9;
+  --sage-700:   #3F6B50;
+  --amber-500:  #C98A2E;  /* warning */
+  --amber-100:  #F8ECD5;
+  --amber-700:  #9A6516;
+  --rust-500:   #B84A3D;  /* error / danger */
+  --rust-100:   #F7DFD9;
+  --rust-700:   #8F362C;
+  --dusk-500:   #5E7B8B;  /* info */
+  --dusk-100:   #E4EDF1;
+  --dusk-700:   #3F5A69;
+
+  /* ============================================================
+     SEMANTIC ALIASES — reference these in components, not ramps
+     ============================================================ */
+
+  /* Surfaces */
+  --surface-page:       var(--sand-50);
+  --surface-card:       var(--white);
+  --surface-raised:     var(--white);
+  --surface-sunken:     var(--sand-100);
+  --surface-inverse:    var(--sand-900);
+  --surface-brand-soft: var(--clay-50);
+  --surface-cream:      var(--cream);
+  --surface-blush:      var(--blush-100);
+
+  /* Text */
+  --text-strong:   var(--sand-900);
+  --text-body:     var(--sand-800);
+  --text-muted:    var(--sand-600);
+  --text-subtle:   var(--sand-500);
+  --text-inverse:  var(--sand-50);
+  --text-on-brand: var(--white);
+  --text-brand:    var(--clay-700);
+  --text-link:     var(--clay-700);
+  --text-link-hover: var(--clay-800);
+
+  /* Borders */
+  --border-subtle:  var(--sand-200);
+  --border-default: var(--sand-300);
+  --border-strong:  var(--sand-400);
+  --border-brand:   var(--clay-300);
+  --border-focus:   var(--clay-600);
+
+  /* Interactive — primary (terracotta) */
+  --action-primary:         var(--clay-600);
+  --action-primary-hover:   var(--clay-700);
+  --action-primary-active:  var(--clay-800);
+  --action-primary-soft:    var(--clay-50);
+  --on-action-primary:      var(--white);
+
+  /* Interactive — secondary (blush / soft) */
+  --action-secondary:        var(--blush-100);
+  --action-secondary-hover:  var(--blush-200);
+  --action-secondary-active: var(--blush-300);
+  --on-action-secondary:     var(--clay-800);
+
+  /* Semantic aliases */
+  --success:       var(--sage-500);
+  --success-soft:  var(--sage-100);
+  --success-text:  var(--sage-700);
+  --warning:       var(--amber-500);
+  --warning-soft:  var(--amber-100);
+  --warning-text:  var(--amber-700);
+  --danger:        var(--rust-500);
+  --danger-soft:   var(--rust-100);
+  --danger-text:   var(--rust-700);
+  --info:          var(--dusk-500);
+  --info-soft:     var(--dusk-100);
+  --info-text:     var(--dusk-700);
+
+  /* Focus ring */
+  --focus-ring: 0 0 0 3px color-mix(in srgb, var(--clay-500) 40%, transparent);
+
+  /* WhatsApp accent (booking flow surfaces only) */
+  --whatsapp: #25D366;
+  --whatsapp-dark: #128C7E;
+  --whatsapp-bg: #E5DDD5;
+}
