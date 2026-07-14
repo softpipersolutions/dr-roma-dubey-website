@@ -4,54 +4,95 @@ import Link from 'next/link';
 import { Button, Badge, Icon } from '@/components/ds';
 import { PHOTOS, BLOBS } from '@/lib/photos';
 
+const STATS: [string, string][] = [
+  ['8+', 'Years of care'],
+  ['5000+', 'Women cared for'],
+  ['2', 'Clinic locations'],
+];
+
 export function Hero() {
   return (
-    <section id="home" style={{ position: 'relative', overflow: 'hidden' }}>
+    <section id="home" className="hero">
+      {/* soft decorative blobs + grain */}
       {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img src={BLOBS.blush} alt="" aria-hidden="true" style={{ position: 'absolute', top: -160, right: -120, width: 560, opacity: 0.7, pointerEvents: 'none' }} />
-      <div className="container hero-grid-wrap" style={{ paddingTop: 64, paddingBottom: 72 }}>
-        <div className="hero-grid" style={{ display: 'grid', gridTemplateColumns: '1.05fr 0.95fr', gap: 56, alignItems: 'center' }}>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 22 }}>
-            <span style={{ display: 'inline-flex', alignItems: 'center', gap: 8, alignSelf: 'flex-start' }}>
+      <img className="hero-blob hero-blob-blush" src={BLOBS.blush} alt="" aria-hidden="true" />
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img className="hero-blob hero-blob-cream" src={BLOBS.cream} alt="" aria-hidden="true" />
+      <div className="hero-grain" aria-hidden="true" />
+
+      <div className="container" style={{ position: 'relative', zIndex: 1 }}>
+        <div className="hero-grid">
+          {/* copy */}
+          <div className="hero-copy">
+            <span className="hero-anim hero-anim-1" style={{ alignSelf: 'flex-start' }}>
               <Badge tone="brand" icon="sparkles">MBBS · MD · 8+ years</Badge>
             </span>
-            <h1 style={{ fontSize: 'var(--text-display-2xl)', fontWeight: 800, letterSpacing: 'var(--tracking-tighter)', lineHeight: 1.04, color: 'var(--sand-800)' }}>
-              Compassionate care for <span style={{ color: 'var(--clay-600)' }}>every woman</span>
+
+            <h1 className="hero-title hero-anim hero-anim-2">
+              Compassionate care for{' '}
+              <span className="hero-accent">every&nbsp;woman</span>
             </h1>
-            <p style={{ fontSize: 'var(--text-md)', lineHeight: 'var(--leading-relaxed)', color: 'var(--text-muted)', maxWidth: 520 }}>
-              I&apos;m Dr. Roma Dubey — an Obstetrician, Gynaecologist &amp; Laparoscopic Surgeon offering advanced, evidence-based women&apos;s health care at every stage of life.
+
+            <p className="hero-lede hero-anim hero-anim-3">
+              I&apos;m Dr. Roma Dubey — an Obstetrician, Gynaecologist &amp; Laparoscopic Surgeon offering
+              advanced, evidence-based women&apos;s health care at every stage of life.
             </p>
-            <div className="hero-cta" style={{ display: 'flex', gap: 14, flexWrap: 'wrap', marginTop: 4 }}>
+
+            <div className="hero-cta hero-anim hero-anim-4">
               <Button variant="whatsapp" size="lg" leftIcon="message" as={Link} href="/book">
-                Connect on WhatsApp
+                Book on WhatsApp
               </Button>
               <Button variant="outline" size="lg" as={Link} href="/services" rightIcon="arrow-right">
                 Explore services
               </Button>
             </div>
-            <div style={{ display: 'flex', gap: 28, marginTop: 14, flexWrap: 'wrap' }}>
-              {([['8+', 'Years of care'], ['5000+', 'Women helped'], ['2', 'Clinic locations']] as const).map(([n, l]) => (
-                <div key={l}>
-                  <div style={{ fontSize: 26, fontWeight: 800, color: 'var(--clay-700)', letterSpacing: '-0.02em' }}>{n}</div>
-                  <div style={{ fontSize: 'var(--text-sm)', color: 'var(--text-subtle)' }}>{l}</div>
-                </div>
-              ))}
+
+            <div className="hero-trust hero-anim hero-anim-5">
+              <div className="hero-rating">
+                <span className="hero-stars" aria-hidden="true">
+                  {[0, 1, 2, 3, 4].map((i) => (
+                    <Icon key={i} name="star" size={16} style={{ fill: 'var(--clay-500)', color: 'var(--clay-500)' }} />
+                  ))}
+                </span>
+                <span className="hero-rating-text">Trusted by women across Meerut</span>
+              </div>
+              <div className="hero-stats">
+                {STATS.map(([n, l], i) => (
+                  <div key={l} className="hero-stat" data-first={i === 0 ? 'true' : undefined}>
+                    <div className="hero-stat-num">{n}</div>
+                    <div className="hero-stat-label">{l}</div>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
-          <div style={{ position: 'relative' }}>
+
+          {/* media */}
+          <div className="hero-media hero-anim-media">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={BLOBS.clay} alt="" aria-hidden="true" style={{ position: 'absolute', bottom: -50, left: -60, width: 340, opacity: 0.55, pointerEvents: 'none' }} />
-            <div style={{ position: 'relative', borderRadius: 'var(--radius-2xl)', overflow: 'hidden', boxShadow: 'var(--shadow-xl)', aspectRatio: '4/5' }}>
+            <img className="hero-blob hero-blob-clay" src={BLOBS.clay} alt="" aria-hidden="true" />
+            <div className="hero-photo">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src={PHOTOS.doctor} alt="Dr. Roma Dubey" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+              <img src={PHOTOS.doctor} alt="Dr. Roma Dubey, Obstetrician & Gynaecologist" />
             </div>
-            <div style={{ position: 'absolute', bottom: 22, left: -26, background: 'var(--surface-card)', borderRadius: 'var(--radius-lg)', boxShadow: 'var(--shadow-lg)', padding: '14px 18px', display: 'flex', alignItems: 'center', gap: 12 }}>
-              <span style={{ width: 42, height: 42, borderRadius: '50%', background: 'var(--sage-100)', color: 'var(--sage-700)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                <Icon name="shield-check" size={22} />
+
+            <div className="hero-float hero-float-trust">
+              <span className="hero-float-icon" style={{ background: 'var(--sage-100)', color: 'var(--sage-700)' }}>
+                <Icon name="shield-check" size={20} />
               </span>
               <div>
-                <div style={{ fontWeight: 700, color: 'var(--text-strong)', fontSize: 'var(--text-sm)' }}>Safe &amp; painless delivery</div>
-                <div style={{ fontSize: 'var(--text-xs)', color: 'var(--text-subtle)' }}>High-risk pregnancy specialist</div>
+                <div className="hero-float-title">Safe &amp; painless delivery</div>
+                <div className="hero-float-sub">High-risk pregnancy specialist</div>
+              </div>
+            </div>
+
+            <div className="hero-float hero-float-rating">
+              <span className="hero-float-icon" style={{ background: 'var(--clay-50)', color: 'var(--clay-600)' }}>
+                <Icon name="heart" size={20} />
+              </span>
+              <div>
+                <div className="hero-float-title">5000+ women</div>
+                <div className="hero-float-sub">cared for with warmth</div>
               </div>
             </div>
           </div>

@@ -8,8 +8,8 @@ export function About() {
   return (
     <section id="about" style={{ background: 'var(--surface-cream)', overflow: 'hidden' }}>
       <div className="container section">
-        <div className="about-grid" style={{ display: 'grid', gridTemplateColumns: '0.9fr 1.1fr', gap: 56, alignItems: 'center' }}>
-          <div style={{ position: 'relative' }}>
+        <div className="about-grid reveal-group" style={{ display: 'grid', gridTemplateColumns: '0.9fr 1.1fr', gap: 56, alignItems: 'center' }}>
+          <div className="reveal reveal-left" style={{ position: 'relative' }}>
             <div style={{ borderRadius: 'var(--radius-2xl)', overflow: 'hidden', boxShadow: 'var(--shadow-lg)', aspectRatio: '5/6' }}>
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img src={PHOTOS.motherChild} alt="A mother holding her child" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
@@ -24,7 +24,7 @@ export function About() {
               </div>
             </div>
           </div>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
+          <div className="reveal reveal-right" style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
             <span className="eyebrow">Trusted gynaecologist</span>
             <h2 style={{ fontSize: 'var(--text-display-lg)', fontWeight: 800, letterSpacing: 'var(--tracking-tight)', color: 'var(--sand-800)', lineHeight: 1.1 }}>
               Your trusted women&apos;s health partner

@@ -13,7 +13,7 @@ export function CtaBand({
   return (
     <section className="section">
       <div className="container">
-        <div style={{ position: 'relative', overflow: 'hidden', borderRadius: 'var(--radius-2xl)', background: 'linear-gradient(120deg, var(--clay-600), var(--clay-500))', color: '#fff', padding: 'clamp(28px, 5vw, 56px)', boxShadow: 'var(--shadow-brand)' }}>
+        <div className="reveal reveal-scale" style={{ position: 'relative', overflow: 'hidden', borderRadius: 'var(--radius-2xl)', background: 'linear-gradient(120deg, var(--clay-600), var(--clay-500))', color: '#fff', padding: 'clamp(28px, 5vw, 56px)', boxShadow: 'var(--shadow-brand)' }}>
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src={BLOBS.cream} alt="" aria-hidden="true" style={{ position: 'absolute', top: -90, right: -50, width: 340, opacity: 0.22, pointerEvents: 'none' }} />
           <div style={{ position: 'relative', display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 28, flexWrap: 'wrap' }}>

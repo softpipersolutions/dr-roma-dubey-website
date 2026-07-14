@@ -16,9 +16,9 @@ export function HowItWorks() {
             Book in one simple chat
           </h2>
         </div>
-        <div className="grid-3" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 24, position: 'relative' }}>
+        <div className="grid-3 reveal-group" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 24, position: 'relative' }}>
           {STEPS.map((s, i) => (
-            <div key={s.title} className="reveal" style={{ position: 'relative', background: 'var(--surface-card)', borderRadius: 'var(--radius-lg)', padding: 'var(--space-8) var(--space-6)', boxShadow: 'var(--shadow-sm)', border: '1px solid var(--border-subtle)' }}>
+            <div key={s.title} className="reveal reveal-up" style={{ position: 'relative', background: 'var(--surface-card)', borderRadius: 'var(--radius-lg)', padding: 'var(--space-8) var(--space-6)', boxShadow: 'var(--shadow-sm)', border: '1px solid var(--border-subtle)' }}>
               <span style={{ position: 'absolute', top: 18, right: 20, fontSize: 40, fontWeight: 800, color: 'var(--clay-100)', lineHeight: 1 }}>{i + 1}</span>
               <span style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: 54, height: 54, borderRadius: 'var(--radius-md)', background: 'color-mix(in srgb, var(--whatsapp) 14%, white)', color: 'var(--whatsapp-dark)', marginBottom: 18 }}>
                 <Icon name={s.icon} size={26} />

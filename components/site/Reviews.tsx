@@ -16,9 +16,9 @@ export function Reviews() {
             Caring for every woman&apos;s journey
           </h2>
         </div>
-        <div className="grid-3" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 20 }}>
+        <div className="grid-3 reveal-group" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 20 }}>
           {REVIEWS.map((r) => (
-            <div key={r.author} className="reveal">
+            <div key={r.author} className="reveal reveal-up">
               <Testimonial {...r} />
             </div>
           ))}
