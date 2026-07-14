@@ -25,7 +25,7 @@ export function Hero() {
               <Button variant="whatsapp" size="lg" leftIcon="message" as={Link} href="/book">
                 Connect on WhatsApp
               </Button>
-              <Button variant="outline" size="lg" as="a" href="#services" rightIcon="arrow-right">
+              <Button variant="outline" size="lg" as={Link} href="/services" rightIcon="arrow-right">
                 Explore services
               </Button>
             </div>

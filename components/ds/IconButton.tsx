@@ -16,6 +16,11 @@ export interface IconButtonProps extends Omit<React.ButtonHTMLAttributes<HTMLBut
   size?: IconButtonSize;
   /** Fully rounded (pill/circle) instead of squircle */
   round?: boolean;
+  /** Render as another element/component (e.g. 'a' or next/link) */
+  as?: any;
+  href?: string;
+  target?: string;
+  rel?: string;
   style?: React.CSSProperties;
 }
 
@@ -46,6 +51,7 @@ export function IconButton({
   size = 'md',
   round = false,
   disabled = false,
+  as = 'button',
   style = {},
   onClick,
   ...rest
@@ -54,12 +60,13 @@ export function IconButton({
   const [pressed, setPressed] = useState(false);
   const sz = SIZES[size] || SIZES.md;
   const v = vStyle(variant, { hovered: hovered && !disabled, pressed: pressed && !disabled });
+  const Tag = as;
   return (
-    <button
-      type="button"
+    <Tag
+      type={as === 'button' ? 'button' : undefined}
       aria-label={label}
       title={label}
-      disabled={disabled}
+      disabled={as === 'button' ? disabled : undefined}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => { setHovered(false); setPressed(false); }}
       onMouseDown={() => setPressed(true)}
@@ -79,6 +86,6 @@ export function IconButton({
       {...rest}
     >
       <Icon name={icon} size={sz.icon} />
-    </button>
+    </Tag>
   );
 }

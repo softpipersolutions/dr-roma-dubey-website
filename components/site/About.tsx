@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { Tag, Icon, Button } from '@/components/ds';
 import { PHOTOS } from '@/lib/photos';
 
@@ -38,7 +39,7 @@ export function About() {
               </div>
             </div>
             <div style={{ marginTop: 6 }}>
-              <Button variant="primary" rightIcon="arrow-right">More about Dr. Roma</Button>
+              <Button variant="primary" as={Link} href="/about" rightIcon="arrow-right">More about Dr. Roma</Button>
             </div>
           </div>
         </div>

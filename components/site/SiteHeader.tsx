@@ -2,11 +2,13 @@
 
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { Button, IconButton, Icon } from '@/components/ds';
+import { NAV_LINKS, SITE } from '@/lib/site';
+import { whatsAppChatLink } from '@/lib/whatsapp';
 
-const links = ['Home', 'About', 'Services', 'Reviews', 'Locations', 'FAQ'];
-
-export function Nav() {
+export function SiteHeader() {
+  const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
 
@@ -17,7 +19,6 @@ export function Nav() {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  // Lock body scroll while the mobile menu is open
   useEffect(() => {
     document.body.style.overflow = open ? 'hidden' : '';
     return () => {
@@ -25,7 +26,13 @@ export function Nav() {
     };
   }, [open]);
 
+  // Close the mobile menu whenever the route changes
+  useEffect(() => {
+    setOpen(false);
+  }, [pathname]);
+
   const solid = scrolled || open;
+  const isActive = (href: string) => (href === '/' ? pathname === '/' : pathname.startsWith(href));
 
   return (
     <header
@@ -33,39 +40,50 @@ export function Nav() {
         position: 'sticky',
         top: 0,
         zIndex: 100,
-        background: solid ? 'color-mix(in srgb, var(--sand-50) 88%, transparent)' : 'transparent',
-        backdropFilter: solid ? 'blur(var(--blur-md))' : 'none',
-        WebkitBackdropFilter: solid ? 'blur(var(--blur-md))' : 'none',
+        background: solid ? 'color-mix(in srgb, var(--sand-50) 88%, transparent)' : 'color-mix(in srgb, var(--sand-50) 70%, transparent)',
+        backdropFilter: 'blur(var(--blur-md))',
+        WebkitBackdropFilter: 'blur(var(--blur-md))',
         borderBottom: solid ? '1px solid var(--border-subtle)' : '1px solid transparent',
         transition: 'background .3s var(--ease-out), border-color .3s var(--ease-out)',
       }}
     >
       <div className="container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: 76 }}>
-        <a href="#home" onClick={() => setOpen(false)} style={{ display: 'flex', flexDirection: 'column', lineHeight: 1 }}>
+        <Link href="/" style={{ display: 'flex', flexDirection: 'column', lineHeight: 1 }}>
           <span style={{ fontSize: 22, fontWeight: 800, letterSpacing: '-0.03em', color: 'var(--sand-800)' }}>
             Dr. Roma <span style={{ color: 'var(--clay-600)' }}>Dubey</span>
           </span>
           <span style={{ fontSize: 10, fontWeight: 600, letterSpacing: '0.16em', textTransform: 'uppercase', color: 'var(--text-subtle)', marginTop: 3 }}>
-            Gynaecology · Women&apos;s Health
+            {SITE.tagline}
           </span>
-        </a>
+        </Link>
 
-        {/* desktop nav */}
-        <nav className="nav-links" style={{ display: 'flex', alignItems: 'center', gap: 30 }}>
-          {links.map((l) => (
-            <a key={l} href={`#${l.toLowerCase()}`} style={{ color: 'var(--text-body)', fontSize: 'var(--text-base)', fontWeight: 'var(--fw-medium)' }}>
-              {l}
-            </a>
-          ))}
+        <nav className="nav-links" style={{ display: 'flex', alignItems: 'center', gap: 28 }}>
+          {NAV_LINKS.map((l) => {
+            const active = isActive(l.href);
+            return (
+              <Link
+                key={l.href}
+                href={l.href}
+                aria-current={active ? 'page' : undefined}
+                style={{
+                  color: active ? 'var(--clay-700)' : 'var(--text-body)',
+                  fontSize: 'var(--text-base)',
+                  fontWeight: active ? 'var(--fw-semibold)' : 'var(--fw-medium)',
+                }}
+              >
+                {l.label}
+              </Link>
+            );
+          })}
         </nav>
+
         <div className="nav-actions" style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
-          <IconButton icon="phone" label="Call the clinic" variant="soft" round />
+          <IconButton icon="phone" label="Call the clinic" variant="soft" round as="a" href={whatsAppChatLink('Hi, I’d like to ask about an appointment.')} />
           <Button variant="whatsapp" leftIcon="message" as={Link} href="/book">
-            Connect on WhatsApp
+            Book on WhatsApp
           </Button>
         </div>
 
-        {/* mobile toggle */}
         <button
           className="nav-toggle"
           onClick={() => setOpen((v) => !v)}
@@ -88,12 +106,11 @@ export function Nav() {
         </button>
       </div>
 
-      {/* mobile menu panel */}
       <div
         className="nav-mobile-panel"
         style={{
           display: 'none',
-          maxHeight: open ? '80vh' : 0,
+          maxHeight: open ? '85vh' : 0,
           opacity: open ? 1 : 0,
           overflow: 'hidden',
           transition: 'max-height .32s var(--ease-out), opacity .2s var(--ease-out)',
@@ -103,20 +120,26 @@ export function Nav() {
           WebkitBackdropFilter: 'blur(var(--blur-md))',
         }}
       >
-        <div className="container" style={{ display: 'flex', flexDirection: 'column', gap: 4, paddingBlock: 12 }}>
-          {links.map((l) => (
-            <a
-              key={l}
-              href={`#${l.toLowerCase()}`}
-              onClick={() => setOpen(false)}
-              style={{ padding: '12px 8px', borderRadius: 'var(--radius-sm)', color: 'var(--text-body)', fontSize: 'var(--text-md)', fontWeight: 'var(--fw-medium)' }}
+        <div className="container" style={{ display: 'flex', flexDirection: 'column', gap: 2, paddingBlock: 12 }}>
+          {NAV_LINKS.map((l) => (
+            <Link
+              key={l.href}
+              href={l.href}
+              style={{
+                padding: '12px 8px',
+                borderRadius: 'var(--radius-sm)',
+                color: isActive(l.href) ? 'var(--clay-700)' : 'var(--text-body)',
+                background: isActive(l.href) ? 'var(--clay-50)' : 'transparent',
+                fontSize: 'var(--text-md)',
+                fontWeight: 'var(--fw-medium)',
+              }}
             >
-              {l}
-            </a>
+              {l.label}
+            </Link>
           ))}
-          <div style={{ display: 'flex', gap: 10, marginTop: 8, marginBottom: 6 }}>
+          <div style={{ marginTop: 10, marginBottom: 6 }}>
             <Button variant="whatsapp" leftIcon="message" fullWidth as={Link} href="/book">
-              Connect on WhatsApp
+              Book on WhatsApp
             </Button>
           </div>
         </div>

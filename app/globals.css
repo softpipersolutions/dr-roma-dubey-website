@@ -312,7 +312,19 @@ section[id] { scroll-margin-top: 84px; }
    never blow past the viewport (the classic overflow fix). */
 .hero-grid > *, .grid-3 > *, .about-grid > *, .faq-grid > *,
 .footer-grid > *, .loc-grid > *, .loc-contact > *,
-.book-grid > *, .book-two > *, .portal-two > * { min-width: 0; }
+.book-grid > *, .book-two > *, .portal-two > *,
+.detail-grid > *, .detail-items > *, .contact-grid > * { min-width: 0; }
+
+/* ---- Service detail + contact + about-stats reflow ---- */
+@media (max-width: 900px) {
+  .detail-grid { grid-template-columns: 1fr !important; }
+  .detail-grid aside { position: static !important; }
+  .contact-grid { grid-template-columns: 1fr !important; }
+}
+@media (max-width: 560px) {
+  .detail-items { grid-template-columns: 1fr !important; }
+  .stat-row { grid-template-columns: repeat(2, 1fr) !important; gap: 18px !important; }
+}
 
 /* ---- Tablet & below ---- */
 @media (max-width: 960px) {

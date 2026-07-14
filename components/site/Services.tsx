@@ -1,13 +1,6 @@
-import { ServiceCard, Button } from '@/components/ds';
-
-const SERVICES = [
-  { icon: 'droplet', title: 'Pap Smear', description: 'Cervical cancer screening designed for early, reassuring detection.', tone: 'brand' },
-  { icon: 'heart', title: 'Wellness Exam', description: 'A complete check-up covering all your health essentials.', tone: 'blush' },
-  { icon: 'activity', title: 'Hormonal & PCOS', description: 'Mood swings or fatigue? Personalised hormonal and PCOS/PCOD care.', tone: 'sage' },
-  { icon: 'baby', title: 'Fertility Test', description: 'Planning for a family? Follicular monitoring and fertility guidance.', tone: 'dusk' },
-  { icon: 'shield-check', title: 'Vaccination', description: 'Cervical cancer (HPV) vaccination for lasting protection.', tone: 'brand' },
-  { icon: 'stethoscope', title: 'Breast Health', description: 'Prioritise your breast health with a thorough clinical exam.', tone: 'blush' },
-] as const;
+import Link from 'next/link';
+import { Button } from '@/components/ds';
+import { ServiceGrid } from '@/components/site/ServiceGrid';
 
 export function Services() {
   return (
@@ -20,17 +13,11 @@ export function Services() {
               Services offered
             </h2>
           </div>
-          <Button variant="outline" as="a" href="#services" rightIcon="arrow-right">
+          <Button variant="outline" as={Link} href="/services" rightIcon="arrow-right">
             View all services
           </Button>
         </div>
-        <div className="grid-3" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 20 }}>
-          {SERVICES.map((s) => (
-            <div key={s.title} className="reveal">
-              <ServiceCard {...s} href="#" />
-            </div>
-          ))}
-        </div>
+        <ServiceGrid />
       </div>
     </section>
   );

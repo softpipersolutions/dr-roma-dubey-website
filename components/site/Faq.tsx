@@ -1,13 +1,9 @@
 import { Accordion, Input, Button, Icon } from '@/components/ds';
+import { FAQS } from '@/lib/faqs';
 
-const FAQS = [
-  { title: 'How can I book an appointment with Dr. Roma Dubey?', content: 'You can book through call or WhatsApp for either Maitri Mahila Clinic (Kaland Chungi, Sardhana) or Aryavart Hospital (NH-58, Daurala, Meerut).' },
-  { title: 'What should I bring for my first visit?', content: 'Please carry any previous medical records, test reports and a list of current medications. If you are pregnant, bring your ultrasound scans and reports if available.' },
-  { title: 'Does Dr. Roma Dubey handle high-risk pregnancies?', content: 'Yes — Dr. Roma is experienced in managing high-risk pregnancies and provides complete care, from early monitoring to safe delivery.' },
-  { title: 'Are ultrasound and diagnostic tests available at the clinic?', content: 'Yes. Pap smear, pelvic ultrasound, follicular monitoring and hormonal tests are available to support accurate diagnosis and treatment.' },
-];
+const ITEMS = FAQS.map((f) => ({ title: f.question, content: f.answer }));
 
-export function Faq() {
+export function Faq({ items = ITEMS }: { items?: { title: string; content: string }[] }) {
   return (
     <section id="faq" className="section">
       <div className="container">
@@ -31,7 +27,7 @@ export function Faq() {
               </div>
             </div>
           </div>
-          <Accordion defaultOpen={[0]} items={FAQS} />
+          <Accordion defaultOpen={[0]} items={items} />
         </div>
       </div>
     </section>
