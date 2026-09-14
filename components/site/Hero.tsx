@@ -43,7 +43,7 @@ export function Hero() {
                 Book on WhatsApp
               </Button>
               <Button variant="outline" size="lg" as={Link} href="/services" rightIcon="arrow-right">
-                Explore services
+                Explore specialities
               </Button>
             </div>
 

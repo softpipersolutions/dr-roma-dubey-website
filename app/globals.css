@@ -349,8 +349,12 @@ section[id] { scroll-margin-top: 84px; }
   .loc-grid { grid-template-columns: 1fr !important; }
 }
 
-/* ---- Mobile nav breakpoint ---- */
-@media (max-width: 860px) {
+/* ---- Mobile nav breakpoint ----
+   The full header (logo + 6 links + phone + WhatsApp CTA) needs ~1040px to
+   sit with real breathing room; below that the logo used to crush onto three
+   lines and "Contact" collided with the phone button, so hand over to the
+   mobile panel while there's still room. */
+@media (max-width: 1040px) {
   .nav-links { display: none !important; }
   .nav-actions { display: none !important; }
   .nav-toggle { display: inline-flex !important; }

@@ -6,9 +6,9 @@ import { SERVICES } from '@/lib/services';
 export function SiteFooter() {
   const explore = [
     { label: 'About Dr. Roma', href: '/about' },
-    { label: 'Services', href: '/services' },
-    { label: 'Locations', href: '/locations' },
-    { label: 'FAQ', href: '/faq' },
+    { label: 'Specialities', href: '/services' },
+    { label: 'Clinics', href: '/locations' },
+    { label: 'FAQs', href: '/faq' },
     { label: 'Contact', href: '/contact' },
     { label: 'Patient portal', href: '/portal' },
   ];
@@ -39,7 +39,7 @@ export function SiteFooter() {
           </div>
 
           <div>
-            <div style={{ fontSize: 'var(--text-sm)', fontWeight: 700, letterSpacing: '0.06em', textTransform: 'uppercase', color: 'var(--sand-400)', marginBottom: 16 }}>Services</div>
+            <div style={{ fontSize: 'var(--text-sm)', fontWeight: 700, letterSpacing: '0.06em', textTransform: 'uppercase', color: 'var(--sand-400)', marginBottom: 16 }}>Specialities</div>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
               {SERVICES.map((s) => (
                 <Link key={s.slug} href={`/services/${s.slug}`} style={{ color: 'var(--sand-200)', fontSize: 'var(--text-base)' }}>{s.shortTitle}</Link>

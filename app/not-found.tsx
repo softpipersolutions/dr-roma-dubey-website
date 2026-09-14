@@ -12,7 +12,7 @@ export default function NotFound() {
         </p>
         <div style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap' }}>
           <Button variant="primary" as={Link} href="/" leftIcon="home">Back home</Button>
-          <Button variant="outline" as={Link} href="/services" rightIcon="arrow-right">Browse services</Button>
+          <Button variant="outline" as={Link} href="/services" rightIcon="arrow-right">Browse specialities</Button>
         </div>
       </div>
     </main>

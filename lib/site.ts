@@ -63,8 +63,8 @@ export function absoluteUrl(path = '/'): string {
 export const NAV_LINKS = [
   { label: 'Home', href: '/' },
   { label: 'About', href: '/about' },
-  { label: 'Services', href: '/services' },
-  { label: 'Locations', href: '/locations' },
-  { label: 'FAQ', href: '/faq' },
+  { label: 'Specialities', href: '/services' },
+  { label: 'Clinics', href: '/locations' },
+  { label: 'FAQs', href: '/faq' },
   { label: 'Contact', href: '/contact' },
 ] as const;

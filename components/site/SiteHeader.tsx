@@ -48,7 +48,7 @@ export function SiteHeader() {
       }}
     >
       <div className="container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: 76 }}>
-        <Link href="/" style={{ display: 'flex', flexDirection: 'column', lineHeight: 1 }}>
+        <Link href="/" style={{ display: 'flex', flexDirection: 'column', lineHeight: 1, flexShrink: 0, whiteSpace: 'nowrap' }}>
           <span style={{ fontSize: 22, fontWeight: 800, letterSpacing: '-0.03em', color: 'var(--sand-800)' }}>
             Dr. Roma <span style={{ color: 'var(--clay-600)' }}>Dubey</span>
           </span>
@@ -57,7 +57,7 @@ export function SiteHeader() {
           </span>
         </Link>
 
-        <nav className="nav-links" style={{ display: 'flex', alignItems: 'center', gap: 28 }}>
+        <nav className="nav-links" style={{ display: 'flex', alignItems: 'center', gap: 'clamp(18px, 1.9vw, 28px)' }}>
           {NAV_LINKS.map((l) => {
             const active = isActive(l.href);
             return (

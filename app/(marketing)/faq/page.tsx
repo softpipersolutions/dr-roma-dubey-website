@@ -16,7 +16,7 @@ export const metadata: Metadata = pageMetadata({
 export default function FaqPage() {
   return (
     <>
-      <BreadcrumbJsonLd items={[{ name: 'Home', path: '/' }, { name: 'FAQ', path: '/faq' }]} />
+      <BreadcrumbJsonLd items={[{ name: 'Home', path: '/' }, { name: 'FAQs', path: '/faq' }]} />
       <FaqJsonLd items={FAQS} />
       <Faq />
       <CtaBand title="Still have a question?" text="Message Dr. Roma’s team on WhatsApp — we’ll guide you step by step." />

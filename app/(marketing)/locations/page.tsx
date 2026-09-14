@@ -5,7 +5,7 @@ import { BreadcrumbJsonLd } from '@/components/seo/JsonLd';
 import { pageMetadata } from '@/lib/seo';
 
 export const metadata: Metadata = pageMetadata({
-  title: 'Locations',
+  title: 'Clinic Locations in Meerut',
   description:
     'Visit Dr. Roma Dubey at Maitri Mahila Clinic (Sardhana) or Aryavart Hospital (Daurala), Meerut — or book a tele-consult on WhatsApp.',
   path: '/locations',
@@ -15,7 +15,7 @@ export const metadata: Metadata = pageMetadata({
 export default function LocationsPage() {
   return (
     <>
-      <BreadcrumbJsonLd items={[{ name: 'Home', path: '/' }, { name: 'Locations', path: '/locations' }]} />
+      <BreadcrumbJsonLd items={[{ name: 'Home', path: '/' }, { name: 'Clinics', path: '/locations' }]} />
       <Locations headingLevel="h1" />
       <CtaBand title="Not sure which clinic to visit?" text="Message Dr. Roma’s team on WhatsApp and we’ll help you choose the most convenient location and time." />
     </>

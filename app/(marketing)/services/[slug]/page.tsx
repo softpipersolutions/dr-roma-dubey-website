@@ -34,7 +34,7 @@ export default function ServiceDetailPage({ params }: { params: { slug: string }
       <BreadcrumbJsonLd
         items={[
           { name: 'Home', path: '/' },
-          { name: 'Services', path: '/services' },
+          { name: 'Specialities', path: '/services' },
           { name: service.title, path: `/services/${service.slug}` },
         ]}
       />
@@ -42,7 +42,7 @@ export default function ServiceDetailPage({ params }: { params: { slug: string }
 
       <PageHero eyebrow={service.eyebrow} title={service.title} lede={service.lede}>
         <Button variant="whatsapp" size="lg" leftIcon="message" as={Link} href="/book">Book this consultation</Button>
-        <Button variant="outline" size="lg" as={Link} href="/services" rightIcon="arrow-right">All services</Button>
+        <Button variant="outline" size="lg" as={Link} href="/services" rightIcon="arrow-right">All specialities</Button>
       </PageHero>
 
       <section className="section">

@@ -40,7 +40,7 @@ export default function AboutPage() {
         lede={`${SITE.role} with ${SITE.experience} of experience, caring for women at every stage of life in ${SITE.city}.`}
       >
         <Button variant="whatsapp" size="lg" leftIcon="message" as={Link} href="/book">Book a consultation</Button>
-        <Button variant="outline" size="lg" as={Link} href="/services" rightIcon="arrow-right">Explore services</Button>
+        <Button variant="outline" size="lg" as={Link} href="/services" rightIcon="arrow-right">Explore specialities</Button>
       </PageHero>
 
       <section className="section">
