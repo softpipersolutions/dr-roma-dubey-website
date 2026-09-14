@@ -10,9 +10,9 @@ export function Faq({ items = ITEMS }: { items?: { title: string; content: strin
         <div className="faq-grid" style={{ display: 'grid', gridTemplateColumns: '0.85fr 1.15fr', gap: 56, alignItems: 'start' }}>
           <div className="faq-aside" style={{ position: 'sticky', top: 100 }}>
             <span className="eyebrow">Help &amp; support</span>
-            <h2 style={{ fontSize: 'var(--text-display-lg)', fontWeight: 800, letterSpacing: 'var(--tracking-tight)', color: 'var(--sand-800)', marginTop: 12, lineHeight: 1.1 }}>
+            <h1 style={{ fontSize: 'var(--text-display-lg)', fontWeight: 800, letterSpacing: 'var(--tracking-tight)', color: 'var(--sand-800)', marginTop: 12, lineHeight: 1.1 }}>
               Frequently asked questions
-            </h2>
+            </h1>
             <p style={{ fontSize: 'var(--text-base)', lineHeight: 'var(--leading-relaxed)', color: 'var(--text-muted)', marginTop: 16 }}>
               Still have a question? Message us on WhatsApp and we&apos;ll guide you step by step.
             </p>

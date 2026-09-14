@@ -48,7 +48,7 @@ export function Dashboard({ onBook }: { onBook: () => void }) {
               <span style={{ display: 'flex', alignItems: 'center', gap: 7 }}><Icon name="map-pin" size={16} /> Maitri Mahila Clinic, Sardhana</span>
             </div>
           </div>
-          <div style={{ display: 'flex', gap: 10 }}>
+          <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap' }}>
             <Button variant="secondary">Reschedule</Button>
             <Button variant="whatsapp" leftIcon="video">Join tele-consult</Button>
           </div>

@@ -448,6 +448,8 @@ section[id] { scroll-margin-top: 84px; }
 }
 .hero-lede { margin: 0; max-width: 520px; font-size: var(--text-md); line-height: var(--leading-relaxed); color: var(--text-muted); }
 
+.hero-cta { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; margin-top: 2px; }
+
 .hero-trust { display: flex; flex-direction: column; gap: 16px; margin-top: 4px; }
 .hero-rating { display: flex; align-items: center; gap: 10px; }
 .hero-stars { display: inline-flex; gap: 2px; }

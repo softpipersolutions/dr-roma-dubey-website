@@ -23,15 +23,16 @@ const CONTACT: { icon: IconName; label: string; value: string }[] = [
   { icon: 'message', label: 'Book instantly', value: 'One chat on WhatsApp' },
 ];
 
-export function Locations() {
+export function Locations({ headingLevel = 'h2' }: { headingLevel?: 'h1' | 'h2' }) {
+  const Heading = headingLevel;
   return (
     <section id="locations" style={{ background: 'var(--surface-brand-soft)' }}>
       <div className="container section">
         <div style={{ textAlign: 'center', maxWidth: 620, margin: '0 auto 44px' }}>
           <span className="eyebrow">Visit us</span>
-          <h2 style={{ fontSize: 'var(--text-display-lg)', fontWeight: 800, letterSpacing: 'var(--tracking-tight)', color: 'var(--sand-800)', marginTop: 12, lineHeight: 1.1 }}>
+          <Heading style={{ fontSize: 'var(--text-display-lg)', fontWeight: 800, letterSpacing: 'var(--tracking-tight)', color: 'var(--sand-800)', marginTop: 12, lineHeight: 1.1 }}>
             Two clinics across Meerut
-          </h2>
+          </Heading>
           <p style={{ fontSize: 'var(--text-base)', lineHeight: 'var(--leading-relaxed)', color: 'var(--text-muted)', marginTop: 14 }}>
             Consult Dr. Roma at whichever location is closest to you — or connect on WhatsApp for a tele-consult from home.
           </p>

@@ -16,7 +16,7 @@ export default function LocationsPage() {
   return (
     <>
       <BreadcrumbJsonLd items={[{ name: 'Home', path: '/' }, { name: 'Locations', path: '/locations' }]} />
-      <Locations />
+      <Locations headingLevel="h1" />
       <CtaBand title="Not sure which clinic to visit?" text="Message Dr. Roma’s team on WhatsApp and we’ll help you choose the most convenient location and time." />
     </>
   );
