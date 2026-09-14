@@ -1,7 +1,7 @@
 // Warm, on-theme photography (Unsplash placeholders from the design bundle).
 // Swap these for the clinic's own patient/clinic photos before production.
 export const PHOTOS = {
-  doctor: 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=900&q=75&auto=format&fit=crop',
+  doctor: '/images/dr-roma-dubey.jpg',
   motherChild: 'https://images.unsplash.com/photo-1531983412531-1f49a365ffed?w=1000&q=75&auto=format&fit=crop',
   care: 'https://images.unsplash.com/photo-1584515933487-779824d29309?w=900&q=75&auto=format&fit=crop',
   family: 'https://images.unsplash.com/photo-1476703993599-0035a21b17a9?w=900&q=75&auto=format&fit=crop',
